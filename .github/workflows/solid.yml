@@ -1,0 +1,17 @@
+# Life can get worse when you choose to be solid
+
+name: Being a solid person
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test if I am a solid person
+        run: test $RANDOM = 1337
