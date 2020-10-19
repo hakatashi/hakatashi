@@ -19,11 +19,7 @@ jobs:
           query: |
             query {
               viewer {
-                contributionsCollection {
-                  contributionCalendar {
-                    totalContributions
-                  }
-                }
+                login
               }
             }
         env:
