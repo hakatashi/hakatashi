@@ -14,6 +14,7 @@ jobs:
         run: sudo apt-get install jq curl -y
       - name: Test if contibution requirement is satisfied
         run: |
+          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -X POST -d '{"query":"query {viewer {contributionsCollection {contributionCalendar {totalContributions}}}}"}' https://api.github.com/graphql
           contributions=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -X POST -d '{"query":"query {viewer {contributionsCollection {contributionCalendar {totalContributions}}}}"}' https://api.github.com/graphql | jq .data.viewer.contributionsCollection.contributionCalendar.totalContributions)
           echo "Current total contributions per year: $contributions"
           test $contributions -ge 2000
