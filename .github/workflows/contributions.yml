@@ -1,0 +1,19 @@
+name: Do 2000+ GH contributions/year
+
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: sudo apt-get install jq curl -y
+      - name: Test if contibution requirement is satisfied
+        run: |
+          contributions=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -X POST -d '{"query":"query {viewer {contributionsCollection {contributionCalendar {totalContributions}}}}"}' https://api.github.com/graphql | jq .data.viewer.contributionsCollection.contributionCalendar.totalContributions)
+          echo "Current total contributions per year: $contributions"
+          test $contributions -ge 2000
