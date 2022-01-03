@@ -17,8 +17,8 @@ jobs:
         id: get_contributions
         with:
           query: |
-            query {
-              viewer {
+            query($owner: String!) {
+              user(login: $owner) {
                 contributionsCollection {
                   contributionCalendar {
                     totalContributions
@@ -26,9 +26,9 @@ jobs:
                 }
               }
             }
+          owner: ${{ github.event.repository.owner.name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo 'latest release: ${{ steps.get_latest_release.outputs.data }}'"
       - name: Test if contibution requirement is satisfied
         run: |
-          echo "Current total contributions per year: ${{ steps.get_contibutions.outputs.data }}"
+          echo "Current total contributions per year: ${{ fromJSON(steps.get_contributions.outputs.data).user.contributionsCollection.contributionCalendar.totalContributions }}"
