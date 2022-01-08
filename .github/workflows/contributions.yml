@@ -26,7 +26,7 @@ jobs:
                 }
               }
             }
-          owner: ${{ github.event.repository.owner.name }}
+          owner: "hakatashi"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Test if contibution requirement is satisfied
