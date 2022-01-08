@@ -1,0 +1,21 @@
+name: Write at least one article every month
+
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - run: pip install yq
+      - name: Test articles count
+        run: |
+          ARTICLES=`curl https://hakatashi.hatenadiary.com/feed | xq '.feed.entry|map(select(.published[0:-6]+"Z"|fromdate>now-30*24*60*60))|length'`
+          echo "Articles written in this 30 days: $ARTICLES"
+          test $ARTICLES -gt 0
