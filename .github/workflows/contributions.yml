@@ -30,5 +30,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Test if contibution requirement is satisfied
-        run: |
-          echo "Current total contributions per year: ${{ fromJSON(steps.get_contributions.outputs.data).user.contributionsCollection.contributionCalendar.totalContributions }}"
+        run: >-
+          echo "Current total contributions per year: ${{ env.CONTRIBUTIONS }}" &&
+          test ${{ env.CONTRIBUTIONS }} -ge 2000
+        env:
+          CONTRIBUTIONS: ${{ fromJSON(steps.get_contributions.outputs.data).user.contributionsCollection.contributionCalendar.totalContributions }}
