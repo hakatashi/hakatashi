@@ -38,7 +38,7 @@ jobs:
       - name: Get CHUNITHM rating
         id: rating
         run: |
-          RATING_TEXT=(`curl -s https://chunirec.net/users/hakatashi | ~/go/bin/pup '.player-profile-container-row:nth-child(2) .player-profile-container-data text{}'`)
+          RATING_TEXT=(`curl -s https://chunirec.net/users/hakatashi | ~/go/bin/pup '.player-profile-container-row:nth-child(3) .player-profile-container-data text{}'`)
           RATING=${RATING_TEXT[0]}
           echo "rating=$RATING" >> $GITHUB_OUTPUT
     outputs:
