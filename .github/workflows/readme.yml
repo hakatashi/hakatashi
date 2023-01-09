@@ -73,7 +73,7 @@ jobs:
           [blog-link]: https://github.com/hakatashi/hakatashi/actions/workflows/blog.yml
           [ongeki-img]: https://img.shields.io/badge/O.N.G.E.K.I.-$ONGEKI_RATING-blue
           [ongeki-link]: https://ongeki-score.net/user/4826
-          [chunithm-img]: https://img.shields.io/badge/CHUNITHM.-$CHUNITHM_RATING-blue
+          [chunithm-img]: https://img.shields.io/badge/CHUNITHM-$CHUNITHM_RATING-blue
           [chunithm-link]: https://chunirec.net/users/hakatashi
           EOF
       - uses: stefanzweifel/git-auto-commit-action@v4
