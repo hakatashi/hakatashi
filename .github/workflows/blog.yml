@@ -16,6 +16,13 @@ jobs:
       - run: pip install yq
       - name: Test articles count
         run: |
-          ARTICLES=`curl https://hakatashi.hatenadiary.com/feed | xq '.feed.entry|map(select(.published[0:-6]+"Z"|fromdate>now-30*24*60*60))|length'`
+          BLOG_ARTICLES=`curl https://hakatashi.hatenadiary.com/feed | xq '.feed.entry|map(select(.published[0:-6]+"Z"|fromdate>now-30*24*60*60))|length'`
+          echo "Blog articles written in this 30 days: $BLOG_ARTICLES"
+
+          QIITA_ARTICLES=`curl https://qiita.com/hakatashi/feed | xq '.feed.entry|map(select(.published[0:-6]+"Z"|fromdate>now-30*24*60*60))|length'`
+          echo "Qiita articles written in this 30 days: $QIITA_ARTICLES"
+
+          ARTICLES=`expr $BLOG_ARTICLES + $QIITA_ARTICLES`
           echo "Articles written in this 30 days: $ARTICLES"
+
           test $ARTICLES -gt 0
