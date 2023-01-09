@@ -55,7 +55,4 @@ jobs:
           EOF
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: [AUTO] Update README.md
-
-
-
+          commit_message: "[AUTO] Update README.md"
