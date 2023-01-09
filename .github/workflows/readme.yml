@@ -26,16 +26,36 @@ jobs:
     outputs:
       rating: ${{steps.rating.outputs.rating}}
 
+  chunithm:
+    name: Retrieve CHUNITHM rating
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v3
+        with:
+          check-latest: true
+      - name: Install dependencies
+        run: go install github.com/ericchiang/pup@latest
+      - name: Get CHUNITHM rating
+        id: rating
+        run: |
+          RATING_TEXT=(`curl -s https://chunirec.net/users/hakatashi | ~/go/bin/pup '.player-profile-container-row:nth-child(2) .player-profile-container-data text{}'`)
+          RATING=${RATING_TEXT[0]}
+          echo "rating=$RATING" >> $GITHUB_OUTPUT
+    outputs:
+      rating: ${{steps.rating.outputs.rating}}
+
   update-readme:
     name: Update README.md
     needs:
       - ongeki
+      - chunithm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: update README
         env:
           ONGEKI_RATING: ${{needs.ongeki.outputs.rating}}
+          CHUNITHM_RATING: ${{needs.chunithm.outputs.rating}}
         run: |
           cat << EOF > README.md
           [![Being a solid person][solid-img]][solid-link]
@@ -43,6 +63,7 @@ jobs:
           [![Write at least one article every month][blog-img]][blog-link]
 
           [![O.N.G.E.K.I. Rating][ongeki-img]][ongeki-link]
+          [![CHUNITHM Rating][chunithm-img]][chunithm-link]
 
           [solid-img]: https://github.com/hakatashi/hakatashi/workflows/Being%20a%20solid%20person/badge.svg
           [solid-link]:https://github.com/hakatashi/hakatashi/actions?query=workflow%3A%22Being+a+solid+person%22
@@ -52,6 +73,8 @@ jobs:
           [blog-link]: https://github.com/hakatashi/hakatashi/actions/workflows/blog.yml
           [ongeki-img]: https://img.shields.io/badge/O.N.G.E.K.I.-$ONGEKI_RATING-blue
           [ongeki-link]: https://ongeki-score.net/user/4826
+          [chunithm-img]: https://img.shields.io/badge/CHUNITHM.-$CHUNITHM_RATING-blue
+          [chunithm-link]: https://chunirec.net/users/hakatashi
           EOF
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
