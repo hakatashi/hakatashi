@@ -13,5 +13,5 @@
 [blog-link]: https://github.com/hakatashi/hakatashi/actions/workflows/blog.yml
 [ongeki-img]: https://img.shields.io/badge/O.N.G.E.K.I.-15.96-blue
 [ongeki-link]: https://ongeki-score.net/user/4826
-[chunithm-img]: https://img.shields.io/badge/CHUNITHM.-ｈ-blue
+[chunithm-img]: https://img.shields.io/badge/CHUNITHM.-15.75-blue
 [chunithm-link]: https://chunirec.net/users/hakatashi
