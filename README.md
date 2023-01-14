@@ -5,6 +5,7 @@
 [![O.N.G.E.K.I. Rating][ongeki-img]][ongeki-link]
 [![CHUNITHM Rating][chunithm-img]][chunithm-link]
 ![Current Heart Beat Rate][heartbeat-img]
+[![GitHub Contributions][contributions-count-img]][contributions-count-link]
 
 [solid-img]: https://github.com/hakatashi/hakatashi/workflows/Being%20a%20solid%20person/badge.svg
 [solid-link]:https://github.com/hakatashi/hakatashi/actions?query=workflow%3A%22Being+a+solid+person%22
@@ -17,3 +18,5 @@
 [chunithm-img]: https://img.shields.io/badge/CHUNITHM-15.75-blue
 [chunithm-link]: https://chunirec.net/users/hakatashi
 [heartbeat-img]: https://img.shields.io/endpoint?url=https%3A%2F%2Fus-central1-hakatabot-firebase-functions.cloudfunctions.net%2FfitbitLatestHeartBeatRate&cacheSeconds=3600
+[contributions-count-img]: https://img.shields.io/badge/Contributions-2846-orange
+[contributions-count-link]: https://github.com/hakatashi
