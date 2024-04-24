@@ -18,5 +18,5 @@
 [chunithm-img]: https://img.shields.io/badge/CHUNITHM-16.06-blue
 [chunithm-link]: https://chunirec.net/users/hakatashi
 [heartbeat-img]: https://img.shields.io/endpoint?url=https%3A%2F%2Fus-central1-hakatabot-firebase-functions.cloudfunctions.net%2FfitbitLatestHeartBeatRate&cacheSeconds=3600
-[contributions-count-img]: https://img.shields.io/badge/Contributions-4571-orange
+[contributions-count-img]: https://img.shields.io/badge/Contributions-4588-orange
 [contributions-count-link]: https://github.com/hakatashi
