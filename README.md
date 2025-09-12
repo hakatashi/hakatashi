@@ -13,10 +13,10 @@
 [contributions-link]: https://github.com/hakatashi/hakatashi/actions/workflows/contributions.yml
 [blog-img]: https://github.com/hakatashi/hakatashi/actions/workflows/blog.yml/badge.svg
 [blog-link]: https://github.com/hakatashi/hakatashi/actions/workflows/blog.yml
-[ongeki-img]: https://img.shields.io/badge/O.N.G.E.K.I.-19.977-blue
+[ongeki-img]: https://img.shields.io/badge/O.N.G.E.K.I.-20.000-blue
 [ongeki-link]: https://ongeki-score.net/user/4826
-[chunithm-img]: https://img.shields.io/badge/CHUNITHM-16.18-blue
+[chunithm-img]: https://img.shields.io/badge/CHUNITHM-16.19-blue
 [chunithm-link]: https://chunirec.net/users/hakatashi
 [heartbeat-img]: https://img.shields.io/endpoint?url=https%3A%2F%2Fus-central1-hakatabot-firebase-functions.cloudfunctions.net%2FfitbitLatestHeartBeatRate&cacheSeconds=3600
-[contributions-count-img]: https://img.shields.io/badge/Contributions-4346-orange
+[contributions-count-img]: https://img.shields.io/badge/Contributions-4363-orange
 [contributions-count-link]: https://github.com/hakatashi
