@@ -14,6 +14,7 @@ jobs:
     steps:
       - uses: actions/setup-go@v3
         with:
+          go-version: '>=1.25.0'
           check-latest: true
       - name: Install dependencies
         run: go install github.com/ericchiang/pup@latest
@@ -34,6 +35,7 @@ jobs:
     steps:
       - uses: actions/setup-go@v3
         with:
+          go-version: '>=1.25.0'
           check-latest: true
       - name: Install dependencies
         run: go install github.com/ericchiang/pup@latest
