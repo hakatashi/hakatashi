@@ -17,6 +17,8 @@ jobs:
           check-latest: true
       - name: Install dependencies
         run: go install github.com/ericchiang/pup@latest
+        env:
+          GOTOOLCHAIN: auto
       - name: Get ONGEKI rating
         id: rating
         run: |
@@ -35,6 +37,8 @@ jobs:
           check-latest: true
       - name: Install dependencies
         run: go install github.com/ericchiang/pup@latest
+        env:
+          GOTOOLCHAIN: auto
       - name: Get CHUNITHM rating
         id: rating
         run: |
